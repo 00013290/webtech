@@ -1,0 +1,23 @@
+extends blog-layout
+
+block content
+  .container.pt-4
+    h1.createh1 Create Post
+
+    if error
+      .alert.alert-danger Error!
+    
+    if success
+      .alert.alert-success Success!
+
+    form(action="/create", method="POST")
+      .form-group
+        label(for="blogTitle") Post Title
+        input#blogTitle.form-control(type="text", name="blogTitle", required)
+      .form-group
+        label(for="blogDesc") Description
+        input#blogDesc.form-control(type="text", name="blogDesc", required)
+      .form-group
+        label(for="blogText") Text
+        textarea#blogText.form-control(name="blogText", rows="5", required)
+      button.btn.btn-primary(type="submit") Create Post

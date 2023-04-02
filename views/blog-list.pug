@@ -1,0 +1,18 @@
+extends blog-layout
+
+block content 
+    .container-md
+        h1 Review Posts
+
+        if deleted
+            .alert.alert-success(role="alert") Deleted
+        each blog in blogs 
+            .card.mb-3
+                .card-body
+                    h5.card-title
+                        a.text-decoration-none.text-dark(href=`/blog-list/${blog.id}`) #{blog.blogTitle}
+                    p.card-text #{blog.blogDesc}
+                .card-footer
+                    a.btn.btn-primary.btn-sm(href=`/blog-list/${blog.id}`, role="button") Read More
+                    a.btn.btn-secondary.btn-sm.ml-2(href=`/blog-list/${blog.id}/edit`, role="button") Edit Post
+                    a.btn.btn-danger.btn-sm.ml-2(href=`/blog-list/${blog.id}/delete`, role="button") Delete

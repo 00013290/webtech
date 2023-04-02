@@ -1,0 +1,8 @@
+extends blog-layout
+
+block content
+  .container-md
+    h3.blogTitle.detail #{blog.blogTitle}
+    p.blogDesc #{blog.blogDesc}
+    p.blogText #{blog.blogText}
+    a.btn.btn-primary(href='/blog-list') Back to Blog List

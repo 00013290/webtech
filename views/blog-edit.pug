@@ -1,0 +1,22 @@
+extends blog-layout
+
+block content
+  .container-md
+    h1 Edit Post
+
+    if error
+      .alert.alert-danger Error!
+    else if success
+      .alert.alert-success Success!
+
+    form(method='post', action=`/blog-list/${blog.id}/edit`)
+      .form-group
+        label(for='blogTitle') Post title
+        input#blogTitle.form-control(type='text' name='blogTitle', value=`${blog.blogTitle}`, required)
+      .form-group
+        label(for='blogDesc') Description
+        input#blogDesc.form-control(type='text' name='blogDesc', value=`${blog.blogDesc}`, required)
+      .form-group
+        label(for='blogText') Text
+        textarea#blogText.form-control(name='blogText', required)= `${blog.blogText}`
+      button.btn.btn-primary(type='submit') Update Post
